@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  swagger:
+    restart: always
+    container_name: swagger-container
+    build:
+      context: './swagger/'
+    volumes:
+      - ./swagger-openapi.yaml:/usr/share/nginx/html/swagger-openapi.yaml
+      - ./swagger-index.html:/usr/share/nginx/html/swagger-index.html
+    ports:
+      - 8080:8080
